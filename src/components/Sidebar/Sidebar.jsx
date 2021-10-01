@@ -14,7 +14,7 @@ import {
 import CloseFriend from "../CloseFriend/CloseFriend";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../App";
-import { getUsers } from "../Services/User.Service";
+import { getUsers } from "../../Services/User.Service";
 
 export default function Sidebar() {
   const [seeMore, setSeeMore] = useState(false);
@@ -22,8 +22,10 @@ export default function Sidebar() {
   const [loggedInUser] = useContext(UserContext);
   async function loadData(){
     const allUsers = await getUsers();
-    console.log({allUsers});
-    allUsers.length > 0 && setUsers(allUsers);
+    // console.log({allUsers});
+    const usersButLoggedIn = allUsers?.length > 0 && allUsers?.filter(user => loggedInUser._id != user._id);
+    // console.log({usersButLoggedIn});
+    allUsers.length > 0 && setUsers(usersButLoggedIn);
   }
   useEffect(() => {
     loadData(); 

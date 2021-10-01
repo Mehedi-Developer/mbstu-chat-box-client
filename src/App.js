@@ -17,6 +17,7 @@ import Register from './components/Register/Register';
 import MainAuth from './components/Main/MainAuth';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Profile from './components/Profile/Profile';
+import Messenger from './components/Messenger/Messenger';
 export const UserContext = createContext();
 // import { getUsers } from './Components/Services/User.Service';
 // import { all_users } from './utils/fakeData';
@@ -62,12 +63,18 @@ function App() {
             : <Register/>}
           </PrivateRoute>
 
-          {/* <Route path="/home">
-            <Home/>
-          </Route> */}
+          <Route exact path="/messenger">
+            {
+              (loggedInUser?.username) 
+              ? <Messenger/>
+              : <div>Page not found</div>
+            }
+          </Route>
           <Route exact path="/profile/:username">
             {
-              (loggedInUser?.username) && <Profile user={loggedInUser}/>
+              (loggedInUser?.username) 
+              ? <Profile user={loggedInUser}/>
+              : <div>Page not found</div>
             }
           </Route>
         </Switch>

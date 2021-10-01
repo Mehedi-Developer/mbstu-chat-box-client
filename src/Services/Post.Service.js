@@ -1,4 +1,4 @@
-import { request } from "../../utils/request";
+import { request } from "../utils/request";
 const postUrlByUserName = "/api/posts/profile/";
 const postUrlByUserId = "/api/posts/timeline/";
 export const getPosts = async(params) => {

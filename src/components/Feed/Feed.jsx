@@ -4,7 +4,7 @@ import { Dropdown } from 'react-bootstrap';
 import "./feed.css";
 import axios from "axios";
 import { UserContext } from "../../App";
-import { getPosts } from "../Services/Post.Service";
+import { getPosts } from "../../Services/Post.Service";
 import { Spin } from "antd";
 import Share from "../Share/Share";
 

@@ -39,7 +39,7 @@ export default function Profile() {
                         src={
                           user.coverPicture
                             ? user.coverPicture
-                            : "person/noCover.png"
+                            : "https://mbstu.ac.bd/images/banner.jpg"
                         }
                         alt=""
                       />

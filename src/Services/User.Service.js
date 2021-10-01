@@ -1,8 +1,8 @@
-import { request } from "../../utils/request";
+import { request } from "../utils/request";
 const loginUrl = "/api/auth/login";
 const registerUrl = "/api/auth/register";
 const addUserPath = "/add/user";
-const findUsersPath = "/api/user/all";
+const findUsersPath = "/api/user";
 export const authUser = async(params) => {
     const {key, body} = params;
 	const reqUrl = key === "login" ? loginUrl : registerUrl;
@@ -32,8 +32,22 @@ export const setUser = async(params) => {
 }
 
 export const getUsers = async() => {
+	const reqUrl = findUsersPath+"/all";
 	try {
-		const data = await request(findUsersPath,{
+		const data = await request(reqUrl,{
+            method: "GET",
+        });	
+		return data;
+	} catch (error) {
+		console.error("error occurred in search service...");
+	}
+}
+
+export const getFriendUser = async(params) => {
+	const {friendId, userId} = params;
+	const reqUrl = friendId ? findUsersPath+`?userId=${friendId}` : findUsersPath+`?userId=${userId}`;
+	try {
+		const data = await request(reqUrl,{
             method: "GET",
         });	
 		return data;

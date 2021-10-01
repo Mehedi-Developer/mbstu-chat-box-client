@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext, useRef, useState } from "react";
 import "./register.css";
 import { useHistory } from "react-router";
-import { authUser } from "../Services/User.Service";
+import { authUser } from "../../Services/User.Service";
 import { UserContext } from "../../App";
 import { message } from "antd";
 export default function Register() {

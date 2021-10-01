@@ -97,7 +97,7 @@ export default function Share({editablePost}) {
     <div className="">
       <div className="share">
         <form className="shareWrapper" onSubmit={submitHandler}>
-          <div className="shareTop">
+          <div className="shareTop mx-4">
             <img
               className="shareProfileImg"
               src={
@@ -113,7 +113,7 @@ export default function Share({editablePost}) {
               value={editablePost?.desc}
               style={{width: "84%"}}
               required
-              className="shareInput form-control"
+              className="shareInput form-control mt-2"
               ref={desc}
             />
           </div>

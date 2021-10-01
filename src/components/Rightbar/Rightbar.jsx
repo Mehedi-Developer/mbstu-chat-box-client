@@ -57,15 +57,16 @@ export default function Rightbar({ user }) {
     console.log("amar friend ", {friends});
     return (
       <>
-        <div className="birthdayContainer">
+        <div className="birthdayContainer m-3">
           <img className="birthdayImg" src={gift} alt="" />
-          <span className="birthdayText">
-            <b>Pola Foster</b> and <b>3 other friends</b> have a birthday today.
-          </span>
+          <b className="birthdayText">
+            <span style={{fontSize: "15px", fontWeight: "bold"}}>Mr. XYZ</span> and <span style={{fontSize: "15px", fontWeight: "bold"}}>3 other friends</span> have a birthday today.
+          </b>
         </div>
-        <img className="rightbarAd" src="assets/ad.png" alt="" />
-        <h4 className="rightbarTitle">Online Friends</h4>
-        <ul className="rightbarFriendList">
+        
+        <img className="rightbarAd rounded  mx-3" src="https://www.creativefabrica.com/wp-content/uploads/2020/03/09/Social-Community-Logo-Graphics-3472214-1-312x208.png" alt="" />
+        <h4 className="rightbarTitle m-3">Online Friends</h4>
+        <ul className="rightbarFriendList m-3">
           {friends?.length > 0 && friends?.map((u) => (
             <Online key={u._id} user={u} />
           ))}
@@ -77,7 +78,7 @@ export default function Rightbar({ user }) {
   const ProfileRightbar = () => {
     return (
       <>
-        {user.username !== loggedInUser.username && (
+        {user._id !== loggedInUser._id && (
           <button className="rightbarFollowButton" onClick={handleClick}>
             {followed ? "Un-follow" : "Follow"}
             {followed ? <Remove /> : <Add />}
@@ -96,9 +97,9 @@ export default function Rightbar({ user }) {
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">Relationship:</span>
             <span className="rightbarInfoValue">
-              {user?.relationship === 1
-                ? "Single"
-                : "Married"}
+              {user?.relationship
+                ? "Married"
+                : "Single"}
             </span>
           </div>
         </div>

@@ -9,14 +9,14 @@ import { useHistory, useLocation } from 'react-router';
 import { Button } from 'antd/lib/radio';
 import firebase from 'firebase/compat/app'; //v9
 import 'firebase/compat/auth'; //v9
-import { getUsers, setUser } from '../Services/User.Service';
+import { getUsers, setUser } from '../../Services/User.Service';
 import { firebaseConfig } from '../../firebase.config';
 firebase.initializeApp(firebaseConfig);
 
 const MainAuth = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [myUser, setMyUser] = useState("");
-    const [wrongMessage, setWrongMessage] = useState(false);
+
     
     // // const facebookProvider = new firebase.auth.FacebookAuthProvider();
     const history = useHistory();
@@ -77,9 +77,8 @@ const MainAuth = () => {
             >   
                 MBSTU CHAT BOX
             </h1>
-            <div style={{position: 'relative',top: '30%'}} className="d-flex justify-content-center">
-                    <h4 className="rounded text-info">To connect with friends and the world around</h4>
-                
+            <div style={{position: 'relative',top: '30%'}} className="d-flex justify-content-center px-2">
+                <h4 className="rounded text-center text-info">To connect with friends and the world around</h4>
             </div>
             <div style={{position: 'relative',top: '35%'}} 
                 className="d-flex justify-content-center"
@@ -88,7 +87,7 @@ const MainAuth = () => {
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000" 
                     style={{width: '500px', height: "200px"}}
-                    className="card login-bg border border-info rounded shadow p-5"
+                    className="card login-bg border border-info rounded shadow p-5 m-3"
                 >
                     <h1 onClick={() => handleClick()} className="btn btn-outline-warning d-flex my-auto mx-auto align-items-center">
                         <GoogleOutlined className="mt-1" /><span className="mx-2"> Login With Google</span>

@@ -17,7 +17,7 @@ import { UserContext } from "../../App";
 import LikeLogo from "../../images/like.png";
 import HeartLogo from "../../images/heart.png";
 import River from "../../images/river.jpeg";
-import { likePost } from "../Services/Post.Service";
+import { likePost } from "../../Services/Post.Service";
 import { request } from "../../utils/request";
 import { useHistory } from "react-router";
 import { Dropdown, DropdownButton, SplitButton } from 'react-bootstrap';
