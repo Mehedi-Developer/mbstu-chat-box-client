@@ -73,14 +73,14 @@ const MainAuth = () => {
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000" 
                 className="text-light text-center " 
-                style={{position: 'relative',top: '30%'}}
+                style={{position: 'relative',top: '25%'}}
             >   
                 MBSTU CHAT BOX
             </h1>
-            <div style={{position: 'relative',top: '30%'}} className="d-flex justify-content-center px-2">
-                <h4 className="rounded text-center text-info">To connect with friends and the world around</h4>
+            <div style={{position: 'relative',top: '28%'}} className="d-flex justify-content-center px-2">
+                <h4 className="rounded text-center text-info">Hey!!! To connect with friends and the world around</h4>
             </div>
-            <div style={{position: 'relative',top: '35%'}} 
+            <div style={{position: 'relative',top: '31%'}} 
                 className="d-flex justify-content-center"
             >
                 <div data-aos="zoom-in"
