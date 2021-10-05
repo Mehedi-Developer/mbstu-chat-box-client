@@ -65,9 +65,7 @@ function App() {
 
           <Route exact path="/messenger">
             {
-              (loggedInUser?.username) 
-              ? <Messenger/>
-              : <div>Page not found</div>
+              <Messenger/>
             }
           </Route>
           <Route exact path="/profile/:username">
