@@ -33,6 +33,7 @@ export default function Register() {
       }else{
         message.success("You logged in successfully");
         setLoggedInUser(result);
+        localStorage.setItem('auth_user', JSON.stringify({...result, isGoogle: false}));
         history.push("/main");
       }
     }else{
@@ -56,6 +57,7 @@ export default function Register() {
             }else{
               message.success("You signed up successfully");
               setLoggedInUser({...result, isGoogle: false});
+              localStorage.setItem('auth_user', JSON.stringify({...result, isGoogle: false}));
               history.push("/");
               // history.push("/main");
             }

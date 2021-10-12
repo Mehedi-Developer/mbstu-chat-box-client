@@ -25,7 +25,7 @@ export const UserContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [user1, setUser1] = useState({});
-  // console.log({user: localStorage.getItem("auth_user")});
+  console.log({loggedInUser});
   // const loadUsers = async () => {
     // const data = await getUsers();
     // console.log({data});
@@ -37,6 +37,7 @@ function App() {
   // }
   useEffect(() => {
     AOS.init();
+    setLoggedInUser(JSON.parse(localStorage.getItem("auth_user")));
     // loadUsers();
   },[""]);
   return (
@@ -45,17 +46,17 @@ function App() {
         <Switch>
           <Route exact path="/">
             {(loggedInUser?.username) ? <Home user={loggedInUser}/>
-            : (localStorage.getItem("auth_user")) ? <Register/> 
+            : (localStorage.getItem("auth_user")) ? <Redirect to="/register" /> 
             : <MainAuth/>}
           </Route>
           <Route exact path="/main">
             {(loggedInUser?.username) ? <Home user={loggedInUser}/>
-            : (localStorage.getItem("auth_user")) ? <Register/> 
+            : (localStorage.getItem("auth_user")) ? <Redirect to="/register" />
             : <MainAuth/>}
           </Route>
           <Route exact path="/login">
             {
-              (localStorage.getItem("auth_user")) ? <Register />
+              (localStorage.getItem("auth_user")) ? <Redirect to="/register" />
               : <MainAuth />
             }
           </Route>
@@ -64,14 +65,17 @@ function App() {
           </Route>
           
           <PrivateRoute exact path="/home">
-            {(loggedInUser?.username) ? <Home user={loggedInUser}/>
-            : <Register/>}
+            {
+              (loggedInUser?.username) ? <Home user={loggedInUser}/>
+              : <Redirect to="/register" />
+            }
           </PrivateRoute>
 
           <Route exact path="/messenger">
             {
               (loggedInUser?.username)
               ? <Messenger/>
+              : (localStorage.getItem("auth_user")) ? <Redirect to="/register" />  
               : <div>Page not found</div>
             }
           </Route>
@@ -79,6 +83,7 @@ function App() {
             {
               (loggedInUser?.username) 
               ? <Profile user={loggedInUser}/>
+              : (localStorage.getItem("auth_user")) ? <Redirect to="/register" />
               : <div>Page not found</div>
             }
           </Route>
