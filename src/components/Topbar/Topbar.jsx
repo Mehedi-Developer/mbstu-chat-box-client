@@ -17,6 +17,8 @@ export default function Topbar(props) {
   // const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const handleLogout = () => {
     setLoggedInUser({});
+    // console.log({user: localStorage.getItem("auth_user")});
+    localStorage.removeItem("auth_user");
     history.push("/");
   }
   return <>
