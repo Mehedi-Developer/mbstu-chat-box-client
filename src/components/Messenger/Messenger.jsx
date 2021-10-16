@@ -26,7 +26,11 @@ export default function Messenger() {
   const scrollRef = useRef();
 
   useEffect(() => {
+    // socket.current = io("wss://mbstu-chat-box.herokuapp.com:8900");
     socket.current = io("ws://localhost:8900");
+    // console.log({socket: socket.current});
+    // /
+    // socket.current = io();
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,

@@ -55,6 +55,7 @@ const MainAuth = () => {
             }
             
             setLoggedInUser(curUser);
+            localStorage.setItem('auth_user', JSON.stringify(curUser));
             history.replace("/home");
         })
         .catch((error) => {
