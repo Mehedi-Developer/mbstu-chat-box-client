@@ -13,7 +13,7 @@
 * To use our client code
 * <h2>
 ```diff
-- git clone https://github.com/Mehedi-Developer/mbstu-chat-box-server.git + Enter
+- git clone https://github.com/Mehedi-Developer/mbstu-chat-box-client.git + Enter
 ```
 </h2>
 
