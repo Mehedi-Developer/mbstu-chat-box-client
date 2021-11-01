@@ -20,7 +20,7 @@
 * Go to client code
 * <h2>
 ```diff
-- cd mbstu-chat-box-server + Enter
+- cd mbstu-chat-box-client + Enter
 ```
 </h2>
 
