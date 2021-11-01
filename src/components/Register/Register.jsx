@@ -105,7 +105,7 @@ export default function Register() {
             />
             {
               login === "sign-up" && <input
-                placeholder="Password Again"
+                placeholder="Confirm password"
                 required
                 ref={passwordAgain}
                 className="loginInput"
